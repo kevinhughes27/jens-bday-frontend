@@ -165,7 +165,8 @@ var App = React.createClass({
             backgroundColor: '#5cb85c',
             border: 0,
             color: 'white',
-            fontSize: 18
+            fontSize: 18,
+            cursor: 'pointer'
           }}
           onClick={this._submit}>
           {btnHtml}
