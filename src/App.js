@@ -46,6 +46,7 @@ var App = React.createClass({
       vote_1: options[0],
       vote_2: options[1],
       vote_3: options[2],
+      submitting: false
     }
   },
 
@@ -74,6 +75,8 @@ var App = React.createClass({
   },
 
   _submit() {
+    this.setState({submitting: true});
+
     var data = {
       fingerprint: $('#fingerprint').text(),
       vote_1: this.state.vote_1,
@@ -85,14 +88,24 @@ var App = React.createClass({
       url: "https://script.google.com/macros/s/AKfycbzdqU05WWCFReBVIMtYWTKKVXSjRLKy3Ev1iIwP2zmB1q67hG-t/exec",
       type: "post",
       data: data,
-      dataType: 'json'
+      dataType: 'json',
+      success: this._submitSuccess
     });
+  },
+
+  _submitSuccess() {
+    this.setState({submitting: false});
   },
 
   render() {
     var vote_1 = this.state.vote_1,
         vote_2 = this.state.vote_2,
         vote_3 = this.state.vote_3;
+
+    var btnHtml = <span>Vote!</span>;
+    if(this.state.submitting) {
+      btnHtml = <i className="fa fa-2x fa-spinner fa-spin"></i>;
+    }
 
     return (
       <div className="list-area">
@@ -155,7 +168,7 @@ var App = React.createClass({
             fontSize: 18
           }}
           onClick={this._submit}>
-          Vote!
+          {btnHtml}
         </button>
       </div>
     );

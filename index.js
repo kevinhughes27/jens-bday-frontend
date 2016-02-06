@@ -29555,7 +29555,8 @@ var App = React.createClass({
     return {
       vote_1: options[0],
       vote_2: options[1],
-      vote_3: options[2]
+      vote_3: options[2],
+      submitting: false
     };
   },
 
@@ -29584,6 +29585,8 @@ var App = React.createClass({
   },
 
   _submit: function _submit() {
+    this.setState({ submitting: true });
+
     var data = {
       fingerprint: $('#fingerprint').text(),
       vote_1: this.state.vote_1,
@@ -29595,14 +29598,28 @@ var App = React.createClass({
       url: "https://script.google.com/macros/s/AKfycbzdqU05WWCFReBVIMtYWTKKVXSjRLKy3Ev1iIwP2zmB1q67hG-t/exec",
       type: "post",
       data: data,
-      dataType: 'json'
+      dataType: 'json',
+      success: this._submitSuccess
     });
+  },
+
+  _submitSuccess: function _submitSuccess() {
+    this.setState({ submitting: false });
   },
 
   render: function render() {
     var vote_1 = this.state.vote_1,
         vote_2 = this.state.vote_2,
         vote_3 = this.state.vote_3;
+
+    var btnHtml = React.createElement(
+      'span',
+      null,
+      'Vote!'
+    );
+    if (this.state.submitting) {
+      btnHtml = React.createElement('i', { className: 'fa fa-2x fa-spinner fa-spin' });
+    }
 
     return React.createElement(
       'div',
@@ -29704,7 +29721,7 @@ var App = React.createClass({
             fontSize: 18
           },
           onClick: this._submit },
-        'Vote!'
+        btnHtml
       )
     );
   }
