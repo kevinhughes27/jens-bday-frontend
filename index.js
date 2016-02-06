@@ -29694,6 +29694,7 @@ var App = React.createClass({
           style: {
             position: 'fixed',
             bottom: 0,
+            left: 0,
             borderRadius: 0,
             width: '100%',
             height: '48px',
