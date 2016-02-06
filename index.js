@@ -9942,6 +9942,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _reactTapper = require('react-tapper');
 
 var _reactTapper2 = _interopRequireDefault(_reactTapper);
@@ -9982,7 +9986,7 @@ var Picker = _react2['default'].createClass({
         if (Array.isArray(nextProps.value)) {
             nextProps.value.forEach(function (v, idx) {
                 if (_this.state.options[idx] && _this.state.options[idx] !== nextProps.options[idx]) {
-                    var node = _react2['default'].findDOMNode(_this.refs['list-' + idx]);
+                    var node = _reactDom2['default'].findDOMNode(_this.refs['list-' + idx]);
                     node.scrollTop = _this._scrollStartTop[idx] = 0;
                 }
             });
@@ -9999,11 +10003,11 @@ var Picker = _react2['default'].createClass({
 
         var op = this.refs['op-0-0'];
         if (op) {
-            this.optionHeight = _react2['default'].findDOMNode(op).clientHeight;
+            this.optionHeight = _reactDom2['default'].findDOMNode(op).clientHeight;
         }
         this._initValueIndexes.forEach(function (vi, idx) {
             if (vi > 0) {
-                var node = _react2['default'].findDOMNode(_this2.refs['list-' + idx]);
+                var node = _reactDom2['default'].findDOMNode(_this2.refs['list-' + idx]);
                 node.scrollTop = _this2._scrollStartTop[idx] = vi * _this2.optionHeight;
             }
         });
@@ -10179,7 +10183,7 @@ var Picker = _react2['default'].createClass({
             _this4._scrollStartTop[idx] = scrollTop;
 
             var opname = 'op-' + idx + '-' + scrollTop / opHeight;
-            var op = _react2['default'].findDOMNode(_this4.refs[opname]).getAttribute('data-value');
+            var op = _reactDom2['default'].findDOMNode(_this4.refs[opname]).getAttribute('data-value');
             if (!op) return;
             op = JSON.parse(op);
 
@@ -10206,7 +10210,7 @@ var Picker = _react2['default'].createClass({
 
         var _list = this.refs['list-' + arr[0]];
         if (!_list) return;
-        var list = _react2['default'].findDOMNode(_list);
+        var list = _reactDom2['default'].findDOMNode(_list);
         list.scrollTop = this.optionHeight * parseInt(arr[1], 10);
 
         this.dismiss();
@@ -10217,7 +10221,7 @@ var Picker = _react2['default'].createClass({
 exports['default'] = Picker;
 module.exports = exports['default'];
 
-},{"es6-viewpoint":5,"react":165,"react-tapper":7}],5:[function(require,module,exports){
+},{"es6-viewpoint":5,"react":165,"react-dom":3,"react-tapper":7}],5:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
