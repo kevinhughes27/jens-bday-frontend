@@ -1,0 +1,22 @@
+{
+  "name": "jensbdayfrontend",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "latest",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.0",
+    "react-picker": "^1.1.1"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "http-server": "^0.8.5",
+    "watch": "^0.17.1"
+  },
+  "scripts": {
+    "start": "node node_modules/http-server/bin/http-server",
+    "build": "browserify -t [babelify] src/index.js > index.js",
+    "watch": "watch 'npm run build' src/"
+  }
+}
