@@ -1,6 +1,8 @@
 Jen's BDay Frontend
 ===================
 
+[https://jensparty.5apps.com/](https://jensparty.5apps.com/)
+
 A ranked ballot voting frontend for Jen's annual Birthday Food/Drink pairing competition. This repo is for the client side react.js app for submitting votes. The backend just appends the votes as a new row in a Google spreadsheet.
 
 Spreadsheet code:
@@ -40,3 +42,11 @@ Votes are counted by using a `COUNTIF` function on the vote columns:
 ```
 
 where `A2` is the name of the item to compare against the votes.
+
+
+Development
+-----------
+
+All development is handled through npm scripts (start, build and watch).
+
+Deployment is to 5apps via git push
