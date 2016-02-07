@@ -29515,7 +29515,7 @@ var $ = require('jquery'),
     React = require('react'),
     Picker = require('react-picker');
 
-var options = ['one', 'two', 'three', 'four'];
+var options = ['Quesadillas', 'Pizza', 'Shrimp tacos', 'Cayenne Truffles', 'Mac & Cheese', 'Pork Sliders', 'Donuts', 'Spanish Sensation (cheese and crackers)', 'Chocolates', 'Jalapeno cheddar wontons', 'Pork Tacos', 'Jalapeno poppers', 'Slammin Smoked Salmon', 'Strawberry Cheesecake'];
 
 var OptionBox = React.createClass({
   displayName: 'OptionBox',
@@ -29560,8 +29560,8 @@ var App = React.createClass({
   getInitialState: function getInitialState() {
     return {
       vote_1: options[0],
-      vote_2: options[1],
-      vote_3: options[2],
+      vote_2: options[0],
+      vote_3: options[0],
       submitting: false
     };
   },

@@ -3,10 +3,20 @@ var $ = require('jquery'),
     Picker = require('react-picker');
 
 var options = [
-  'one',
-  'two',
-  'three',
-  'four'
+  'Quesadillas',
+  'Pizza',
+  'Shrimp tacos',
+  'Cayenne Truffles',
+  'Mac & Cheese',
+  'Pork Sliders',
+  'Donuts',
+  'Spanish Sensation (cheese and crackers)',
+  'Chocolates',
+  'Jalapeno cheddar wontons',
+  'Pork Tacos',
+  'Jalapeno poppers',
+  'Slammin Smoked Salmon',
+  'Strawberry Cheesecake'
 ]
 
 var OptionBox = React.createClass({
@@ -44,8 +54,8 @@ var App = React.createClass({
   getInitialState() {
     return {
       vote_1: options[0],
-      vote_2: options[1],
-      vote_3: options[2],
+      vote_2: options[0],
+      vote_3: options[0],
       submitting: false
     }
   },
