@@ -29605,11 +29605,16 @@ var App = React.createClass({
       type: "post",
       data: data,
       dataType: 'json',
-      success: this._submitSuccess
+      success: this._submitSuccess,
+      error: this._submitError
     });
   },
 
   _submitSuccess: function _submitSuccess() {
+    this.setState({ submitting: false });
+  },
+
+  _submitError: function _submitError() {
     this.setState({ submitting: false });
   },
 

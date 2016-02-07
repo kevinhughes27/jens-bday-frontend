@@ -99,11 +99,16 @@ var App = React.createClass({
       type: "post",
       data: data,
       dataType: 'json',
-      success: this._submitSuccess
+      success: this._submitSuccess,
+      error: this._submitError
     });
   },
 
   _submitSuccess() {
+    this.setState({submitting: false});
+  },
+
+  _submitError() {
     this.setState({submitting: false});
   },
 
