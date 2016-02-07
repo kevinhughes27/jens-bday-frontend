@@ -56,7 +56,7 @@ var App = React.createClass({
       vote_1: options[0],
       vote_2: options[0],
       vote_3: options[0],
-      submitting: false
+      btnHtml: <span>Vote!</span>
     }
   },
 
@@ -85,7 +85,7 @@ var App = React.createClass({
   },
 
   _submit() {
-    this.setState({submitting: true});
+    this.setState({btnHtml: <i className="fa fa-2x fa-spinner fa-spin"></i>});
 
     var data = {
       fingerprint: $('#fingerprint').text(),
@@ -105,11 +105,11 @@ var App = React.createClass({
   },
 
   _submitSuccess() {
-    this.setState({submitting: false});
+    this.setState({btnHtml: <i className="fa fa-2x fa-check"></i>});
   },
 
   _submitError() {
-    this.setState({submitting: false});
+    this.setState({btnHtml: <i className="fa fa-2x fa-exclamation-triangle"></i>});
   },
 
   render() {
@@ -117,10 +117,7 @@ var App = React.createClass({
         vote_2 = this.state.vote_2,
         vote_3 = this.state.vote_3;
 
-    var btnHtml = <span>Vote!</span>;
-    if(this.state.submitting) {
-      btnHtml = <i className="fa fa-2x fa-spinner fa-spin"></i>;
-    }
+    var btnHtml = this.state.btnHtml;
 
     return (
       <div className="list-area">

@@ -29562,7 +29562,11 @@ var App = React.createClass({
       vote_1: options[0],
       vote_2: options[0],
       vote_3: options[0],
-      submitting: false
+      btnHtml: React.createElement(
+        'span',
+        null,
+        'Vote!'
+      )
     };
   },
 
@@ -29591,7 +29595,7 @@ var App = React.createClass({
   },
 
   _submit: function _submit() {
-    this.setState({ submitting: true });
+    this.setState({ btnHtml: React.createElement('i', { className: 'fa fa-2x fa-spinner fa-spin' }) });
 
     var data = {
       fingerprint: $('#fingerprint').text(),
@@ -29611,11 +29615,11 @@ var App = React.createClass({
   },
 
   _submitSuccess: function _submitSuccess() {
-    this.setState({ submitting: false });
+    this.setState({ btnHtml: React.createElement('i', { className: 'fa fa-2x fa-check' }) });
   },
 
   _submitError: function _submitError() {
-    this.setState({ submitting: false });
+    this.setState({ btnHtml: React.createElement('i', { className: 'fa fa-2x fa-exclamation-triangle' }) });
   },
 
   render: function render() {
@@ -29623,14 +29627,7 @@ var App = React.createClass({
         vote_2 = this.state.vote_2,
         vote_3 = this.state.vote_3;
 
-    var btnHtml = React.createElement(
-      'span',
-      null,
-      'Vote!'
-    );
-    if (this.state.submitting) {
-      btnHtml = React.createElement('i', { className: 'fa fa-2x fa-spinner fa-spin' });
-    }
+    var btnHtml = this.state.btnHtml;
 
     return React.createElement(
       'div',
