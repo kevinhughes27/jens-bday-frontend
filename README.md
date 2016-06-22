@@ -5,6 +5,8 @@ Jen's BDay Frontend
 
 A ranked ballot voting frontend for Jen's annual Birthday Food/Drink pairing competition. This repo is for the client side react.js app for submitting votes. The backend just appends the votes as a new row in a Google spreadsheet.
 
+![screenshot](https://raw.githubusercontent.com/kevinhughes27/jens-bday-frontend/master/screenshot.jpg)
+
 Spreadsheet code:
 
 ```javascript
